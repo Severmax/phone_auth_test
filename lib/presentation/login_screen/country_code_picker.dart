@@ -21,8 +21,8 @@ Widget _buildCountryCodePicker(BuildContext context, TextEditingController count
                           labelText: 'Search by country name',
                           prefixIcon: Icon(Icons.search),
                         ),
-                        onChanged: (query){
-                          context.read<CountryCodeCubit>().filterCountryCodes(query);
+                        onChanged: (query) async{
+                          await context.read<CountryCodeCubit>().filterCountryCodes(query);
                         },
                       ),
                     ),
