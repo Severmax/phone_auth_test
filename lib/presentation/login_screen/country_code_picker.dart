@@ -4,8 +4,8 @@ part of 'login_screen.dart';
 
 Widget _buildCountryCodePicker(BuildContext context, TextEditingController countryCodeController, String countryCodePhone) {
   return InkWell(
-    onTap: () {
-      context.read<CountryCodeCubit>().fetchCountryCodes();
+    onTap: () async{
+      await context.read<CountryCodeCubit>().fetchCountryCodes();
       showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
@@ -39,8 +39,8 @@ Widget _buildCountryCodePicker(BuildContext context, TextEditingController count
                             labelText: 'Search by country name',
                             prefixIcon: Icon(Icons.search),
                           ),
-                          onChanged: (query){
-                            context.read<CountryCodeCubit>().filterCountryCodes(query);
+                          onChanged: (query)async{
+                            await context.read<CountryCodeCubit>().filterCountryCodes(query);
                           },
                         ),
                     ),

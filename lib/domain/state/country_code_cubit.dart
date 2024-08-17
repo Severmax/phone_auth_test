@@ -23,7 +23,7 @@ class CountryCodeCubit extends Cubit<List<CountryCode>> {
     }
   }
 
-  void filterCountryCodes(String query) {
+  Future<void> filterCountryCodes(String query) async{
     if (query.isEmpty) {
       emit(_allCountryCodes);
     } else {
